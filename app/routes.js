@@ -27,7 +27,7 @@ module.exports = function(app, passport, db) {
 // message board routes ===============================================================
 
     app.post('/contacts', (req, res) => {
-      db.collection('contacts').save({firstName:req.body.fName, lastName:req.body.lName, workEmail:req.body.wEmail, personalEmail:req.body.pEmail,  personalPhone:req.body.phoneNum, workPhone:req.body.phoneNumWork, address:req.body.address, contacts: req.body.contacts}, (err, result) => {
+      db.collection('contacts').save({firstName:req.body.fName, lastName:req.body.lName, workEmail:req.body.wEmail, personalEmail:req.body.pEmail,  personalPhone:req.body.phoneNum, workPhone:req.body.phoneNumWork, address:req.body.address}, (err, result) => {
         if (err) return console.log(err)
         console.log('saved to database')
         res.redirect('/profile')
@@ -71,9 +71,9 @@ module.exports = function(app, passport, db) {
     })*/
 
     app.delete('/trash', (req, res) => {
-      db.collection('messages').findOneAndDelete({name: req.body.name, msg: req.body.msg}, (err, result) => {
+      db.collection('contacts').findOneAndDelete({firstName:req.body.fName, lastName:req.body.lName, workEmail:req.body.wEmail, personalEmail:req.body.pEmail,  personalPhone:req.body.phoneNum, workPhone:req.body.phoneNumWork, address:req.body.address}, (err, result) => {
         if (err) return res.send(500, err)
-        res.send('Message deleted!')
+        res.send('Contact deleted!')
       })
     })
 

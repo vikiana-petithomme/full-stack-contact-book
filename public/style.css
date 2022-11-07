@@ -1,50 +1,58 @@
-body{
-  padding-top:80px;
-  word-wrap:break-word;
+
+#title{
+  width:100%;
+  text-align: center;
+  font-weight:bold;
+  font-size:5rem;
 }
-img{
-  height: 200px;
+
+div.contacts{
+  margin-top:5%;
 }
 
 form {
-  display: grid;
-  grid-template-columns: 2 1fr;
-  grid-template-rows: 4 1fr;
-  grid-template-areas: 
-    "name1" "name2"
-    "email1" "email2"
-    "phone1" "phone2"
-    "address" "submit"
+  display:flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin-top:2%;
+  margin-bottom:2%;
+  color:green;
+}
+#fName, #lName, #emailWork, #emailPersonal{
+  width:48%;
+  margin-bottom:2%;
 }
 
-input#fname {
-  grid-area: name1;
+#address{
+  width:40%;
 }
 
-input#lname {
-  grid-area: name2;
+#submit {
+  width:10%;
+}
+#phoneNumPersonal, #phoneNumWork {
+  width:20%;
+}
+section.contactCard {
+  border: 2px solid green;
+  border-radius:5%;
+  margin-bottom:2%;
+  padding-left:5%;
+  padding-right:5%;
+  padding-bottom:2%;
+  background: rgb(201, 255, 201);
 }
 
-input#emailPersonal {
-  grid-area: email1;
+.material-symbols-outlined{
+  margin-left:1%;
 }
 
-input#emailWork {
-  grid-area: email2;
+section.contactDetails{
+  display: flex;
+  flex-direction:column;
+  font-size: 2rem;
 }
 
-input#phoneNumPersonal {
-  grid-area: phone1;
-}
-
-input#phoneNumWork {
-  grid-area: phone2;
-}
-
-input#address {
-  grid-area: adress;
-}
-
-input[type="submit"]{
-  grid-area: submit;
+h1{
+  margin-bottom:3%;
 }

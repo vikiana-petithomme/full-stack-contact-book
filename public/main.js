@@ -1,67 +1,28 @@
-var thumbUp = document.getElementsByClassName("fa-thumbs-up");
-var thumbDown = document.getElementsByClassName("fa-thumbs-down");
-var trash = document.getElementsByClassName("fa-trash-o");
 
-Array.from(thumbUp).forEach(function(element) {
-      element.addEventListener('click', function(){
-        const name = this.parentNode.parentNode.childNodes[1].innerText
-        const msg = this.parentNode.parentNode.childNodes[3].innerText
-        const thumbUp = parseFloat(this.parentNode.parentNode.childNodes[5].innerText)
-        fetch('messages', {
-          method: 'put',
-          headers: {'Content-Type': 'application/json'},
-          body: JSON.stringify({
-            'name': name,
-            'msg': msg,
-            'thumbUp':thumbUp
-          })
-        })
-        .then(response => {
-          if (response.ok) return response.json()
-        })
-        .then(data => {
-          console.log(data)
-          window.location.reload(true)
-        })
-      });
-});
-
-Array.from(thumbDown).forEach(function(element) {
-  element.addEventListener('click', function(){
-    const name = this.parentNode.parentNode.childNodes[1].innerText
-    const msg = this.parentNode.parentNode.childNodes[3].innerText
-    const thumbUp = parseFloat(this.parentNode.parentNode.childNodes[5].innerText)
-    fetch('messages', {
-      method: 'put',
-      headers: {'Content-Type': 'application/json'},
-      body: JSON.stringify({
-        'name': name,
-        'msg': msg,
-        'thumbUp':thumbUp - 2
-      })
-    })
-    .then(response => {
-      if (response.ok) return response.json()
-    })
-    .then(data => {
-      console.log(data)
-      window.location.reload(true)
-    })
-  });
-});
+var trash = document.getElementsByClassName("material-symbols-outlined");
 
 Array.from(trash).forEach(function(element) {
       element.addEventListener('click', function(){
-        const name = this.parentNode.parentNode.childNodes[1].innerText
-        const msg = this.parentNode.parentNode.childNodes[3].innerText
+        const fName = element.parentElement.innerText
+        const lName = element.parentElement.innerText
+        const wEmail = element.parentElement.parentElement.children[1].children[0].innerText
+        const pEmail = element.parentElement.parentElement.children[1].children[1].innerText
+        const pNum = element.parentElement.parentElement.children[1].children[2].innerText
+        const wNum = element.parentElement.parentElement.children[1].children[3].innerText
+        const addy = element.parentElement.parentElement.children[1].children[4].innerText
         fetch('trash', {
           method: 'delete',
           headers: {
             'Content-Type': 'application/json'
           },
           body: JSON.stringify({
-            'name': name,
-            'msg': msg
+          'firstName':fName, 
+          'lastName':lName, 
+          'workEmail':wEmail, 
+          'personalEmail':pEmail,  
+          'personalPhone':pNum, 
+          'workPhone':wNum,
+          'address':addy
           })
         }).then(function (response) {
           window.location.reload()
