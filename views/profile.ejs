@@ -1,0 +1,40 @@
+<!doctype html>
+<html>
+<head>
+    <title>CONTACT BOOK</title>
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <div class="createContact">
+      <form action="/contacts" method="POST">
+        <span> ADD A NEW CONTACT</span>
+        <input type="text" id="fName" name="fName" placeholder="First Name">
+        <input type="text" id="lName" name="lName" placeholder="Last Name">
+        <input type="email" id="emailWork" name="wEmail" placeholder="Work Email">
+        <input type="email" id="emailPersonal" name="pEmail" placeholder="Personal Email">
+        <input type="tel" id="phoneNumPersonal" name="phoneNum" placeholder="Personal Phone Number">
+        <input type="tel" id="phoneNumWork" name="phoneNumWork" placeholder="Work Phone Number">
+        <input type="text" id="address" name="address">
+        <input type="submit" name="submit" id="submit">
+      </form>
+    </div>
+    <div class="contacts">
+      <% for (let i=0; i<contacts.length; i++) { %>
+        <section class="contactCard">
+          <h2><%=contacts[i].lName%>, <%= contacts[i].fName %></h2>
+          <span><%=contacts[i].wEmail%></span>
+          <span><%=contacts[i].pEmail%></span>
+          <span><%=contacts[i].phoneNum%></span>
+          <span><%=contacts[i].phoneNumWork%></span>
+          <span><%=contacts[i].address%></span>
+        </section>
+      <% } %>
+    </div>
+  </div>
+  <script src="main.js"></script>
+
+</body>
+</html>

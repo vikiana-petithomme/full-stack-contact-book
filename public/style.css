@@ -1,0 +1,50 @@
+body{
+  padding-top:80px;
+  word-wrap:break-word;
+}
+img{
+  height: 200px;
+}
+
+form {
+  display: grid;
+  grid-template-columns: 2 1fr;
+  grid-template-rows: 4 1fr;
+  grid-template-areas: 
+    "name1" "name2"
+    "email1" "email2"
+    "phone1" "phone2"
+    "address" "submit"
+}
+
+input#fname {
+  grid-area: name1;
+}
+
+input#lname {
+  grid-area: name2;
+}
+
+input#emailPersonal {
+  grid-area: email1;
+}
+
+input#emailWork {
+  grid-area: email2;
+}
+
+input#phoneNumPersonal {
+  grid-area: phone1;
+}
+
+input#phoneNumWork {
+  grid-area: phone2;
+}
+
+input#address {
+  grid-area: adress;
+}
+
+input[type="submit"]{
+  grid-area: submit;
+}
