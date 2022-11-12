@@ -1,15 +1,33 @@
+#indexImg {
+  filter:hue-rotate(240deg);
+}
 
 #title{
   width:100%;
-  text-align: center;
+  text-align: left;
   font-weight:bold;
-  font-size:5rem;
+  font-size:3rem;
+  color:green;
 }
-
+div.createContact{
+  border: 2px solid green;
+  padding:3%;
+  border-radius: 5%;
+  box-shadow: 10px 5px green;
+  margin-top:3%;
+}
 div.contacts{
   margin-top:5%;
 }
 
+input {
+ border: 2px solid green;
+ color: green;
+}
+
+input::placeholder{
+  color:green;
+}
 form {
   display:flex;
   justify-content: space-between;
@@ -29,6 +47,8 @@ form {
 
 #submit {
   width:10%;
+  background:green;
+  color:white;
 }
 #phoneNumPersonal, #phoneNumWork {
   width:20%;
@@ -45,7 +65,13 @@ section.contactCard {
 
 .material-symbols-outlined{
   margin-left:1%;
+  font-variation-settings:
+  'FILL' 1,
+  'wght' 400,
+  'GRAD' 0,
+  'opsz' 48
 }
+
 
 section.contactDetails{
   display: flex;
@@ -55,4 +81,13 @@ section.contactDetails{
 
 h1{
   margin-bottom:3%;
+}
+.button {
+  background: green;
+  color:white;
+  padding-left:6%;
+  padding-right:6%;
+  padding-top:1%;
+  padding-bottom:1%;
+  box-shadow:none;
 }

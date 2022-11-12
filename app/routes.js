@@ -1,3 +1,5 @@
+const ObjectID = require('mongodb').ObjectID
+
 module.exports = function(app, passport, db) {
 
 // normal routes ===============================================================
@@ -70,10 +72,27 @@ module.exports = function(app, passport, db) {
       })
     })*/
 
-    app.delete('/trash', (req, res) => {
-      db.collection('contacts').findOneAndDelete({firstName:req.body.fName, lastName:req.body.lName, workEmail:req.body.wEmail, personalEmail:req.body.pEmail,  personalPhone:req.body.phoneNum, workPhone:req.body.phoneNumWork, address:req.body.address}, (err, result) => {
+    /*app.delete('/trash', (req, res) => {
+      db.collection('contacts').findOneAndDelete({
+        firstName:req.body.fName, 
+        lastName:req.body.lName, 
+        workEmail:req.body.wEmail, 
+        personalEmail:req.body.pEmail,  
+        personalPhone:req.body.phoneNum, 
+        workPhone:req.body.phoneNumWork, 
+        saddress:req.body.address}, (err, result) => {
         if (err) return res.send(500, err)
         res.send('Contact deleted!')
+      })
+    })*/
+
+    app.delete('/trash', (req, res) => {
+      console.log('hello world')
+      console.log(req.body)
+      db.collection('contacts').findOneAndDelete({
+        _id: ObjectID(req.body._id)}, (err, result) => {
+        if (err) return res.send(500, err)
+        res.send('Message deleted!')
       })
     })
 
